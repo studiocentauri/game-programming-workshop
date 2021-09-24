@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/physics/Ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/physics/Char.gd" type="Script" id=2]
+[ext_resource path="res://White.png" type="Texture" id=3]
+[ext_resource path="res://scenes/physics/Wall.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.525, 24.368 )
+
+[node name="Node" type="Node"]
+
+[node name="Char" type="Node2D" parent="."]
+position = Vector2( 578.043, 328.124 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Char"]
+
+[node name="Sprite" type="Sprite" parent="Char/KinematicBody2D"]
+modulate = Color( 0, 0.47451, 0.976471, 1 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Char/KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="Ground" parent="." instance=ExtResource( 1 )]
+position = Vector2( 344.528, 490 )
+
+[node name="Wall" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80.498, 259.724 )
+
+[node name="Wall2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 999.432, 257.189 )
+
+[node name="Ground2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 787.526, 490 )
