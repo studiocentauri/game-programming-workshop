@@ -2,10 +2,10 @@ extends Node2D
 
 onready var rb=$KinematicBody2D
 var velocity
-var gravityScale=1.0
-var acceleration=900.0
-var maxSpeed=400.0
-var friction=0.25
+export var gravityScale=1.0
+export var acceleration=900.0
+export var maxSpeed=400.0
+export var friction=0.25
 
 func _ready():
 	velocity = Vector2.ZERO

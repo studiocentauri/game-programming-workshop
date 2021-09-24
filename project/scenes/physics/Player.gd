@@ -2,8 +2,8 @@ extends Node2D
 
 onready var rb = $RigidBody2D
 
-onready var speed=250.0
-onready var fric=0.1
+export var speed=250.0
+export var fric=0.1
 
 func _physics_process(delta):
 	var vel=rb.linear_velocity
