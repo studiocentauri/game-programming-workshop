@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var speed = 300.0
+export var speed = 300.0
 
 func _process(delta):
 	var xDir = 0.0
