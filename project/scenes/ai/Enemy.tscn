@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/ai/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.7666, 29.1711 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 109.232
+
+[node name="Enemy" type="Node2D" groups=[
+"Enemy",
+]]
+script = ExtResource( 1 )
+detectRadius = 10.0
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 2 )
+
+[node name="Collider" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="DetectionRange" type="Area2D" parent="KinematicBody2D"]
+
+[node name="AreaShape" type="CollisionShape2D" parent="KinematicBody2D/DetectionRange"]
+shape = SubResource( 2 )
+[connection signal="body_entered" from="KinematicBody2D/DetectionRange" to="." method="_on_DetectionRange_body_entered"]
