@@ -12,5 +12,6 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("right"):
 		vel.x=speed
 	else:
+		# Enables friction
 		vel.x=lerp(vel.x,0.0,fric)
 	rb.linear_velocity=vel

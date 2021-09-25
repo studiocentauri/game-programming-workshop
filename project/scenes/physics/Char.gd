@@ -11,7 +11,8 @@ func _ready():
 	velocity = Vector2.ZERO
 
 func _physics_process(delta):
-	apply_gravity(delta)
+	# Remove to Apply Gravity
+	# apply_gravity(delta)
 	apply_motion(delta)
 	velocity = rb.move_and_slide(velocity)
 
@@ -28,4 +29,5 @@ func apply_motion(delta):
 		velocity.x = lerp(velocity.x,0.0,friction)
 	else:
 		velocity.x += xDir*acceleration*delta
-	velocity.x=clamp(velocity.x,-maxSpeed,maxSpeed)
+	# Remove to Clamp Velocity
+	# velocity.x=clamp(velocity.x,-maxSpeed,maxSpeed)

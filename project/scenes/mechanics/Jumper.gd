@@ -9,7 +9,9 @@ export var jumpForce=500.0
 export var onGround=false
 
 func _process(delta):
-	if onGround and Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
+	# Replace Comment to check for Ground
+	# if onGround and Input.is_action_just_pressed("jump"):
 			jump()
 
 func _physics_process(delta):
